@@ -17,8 +17,8 @@ taller-claude/
     ├── .claude-plugin/plugin.json      name, version, description, author
     ├── agents/{explorador,cartografo,investigador,redactor,programador,verificador}.md
     ├── skills/orquestar/{SKILL.md,contrato.md,plantilla-mapa.md}
-    ├── hooks/hooks.json                SubagentStop (^enrutador:), PostToolUse (Agent), PreToolUse (Edit|Write)
-    ├── scripts/{contrato-stop.sh,bitacora.sh,solo-claude-md.sh,sync-contrato.sh}
+    ├── hooks/hooks.json                SubagentStop (^enrutador:), PostToolUse (Agent), PreToolUse (Edit|Write; SubagentHandback)
+    ├── scripts/{contrato-lib.sh,contrato-stop.sh,contrato-handback.sh,bitacora.sh,solo-claude-md.sh,sync-contrato.sh}
     └── evals/
 ```
 Formato de referencia en disco: `/home/skytoti/.claude/plugins/marketplaces/impeccable/.claude-plugin/marketplace.json`,
@@ -69,7 +69,12 @@ y se devuelve la ruta.
   responde `{"decision":"block","reason":"…"}`; si es true, deja pasar (evita bucles).
   Trampa: se dispara también para agentes internos con `agent_type` vacío; por eso el matcher anclado.
   Trampa: en modo auto el informe puede ir por `SubagentHandback` y no estar en `last_assistant_message`;
-  en ese caso el script deja pasar.
+  en ese caso el script deja pasar y lo revisa el hook siguiente.
+- **PreToolUse**, matcher `SubagentHandback` → `contrato-handback.sh`. Revisa `tool_input.message` (campo
+  confirmado en transcripts reales) con la misma función (`scripts/contrato-lib.sh`, compartida con
+  `contrato-stop.sh`) y solo para `agent_type` `enrutador:*`. Si no cumple, `permissionDecision: "deny"` con
+  el motivo; tope anti-bucle: un rechazo por `agent_id` (marca en `$TMPDIR/enrutador-contrato-<uid>/`), el
+  segundo intento pasa y borra la marca.
 - **PostToolUse**, matcher `Agent` → `bitacora.sh`. Agrega una línea a `${CLAUDE_PLUGIN_DATA}/bitacora.jsonl`
   con fecha, `tool_input.subagent_type`, `tool_input.model`, `tool_response.resolvedModel`, tokens,
   duración y número de herramientas usadas. Los nombres exactos de los campos de `tool_response`

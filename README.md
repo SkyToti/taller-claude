@@ -14,8 +14,9 @@ contrato fijo. El diseño completo está en [`DISENO.md`](DISENO.md).
 | `enrutador:verificador` | Pruebas y revisión del diff; solo edita pruebas | sonnet |
 
 La skill `orquestar` le dice a la sesión principal cómo enrutar, cómo armar oleadas con worktrees y cómo
-integrar. Los hooks revisan el contrato de los informes (`SubagentStop`), registran cada llamada a
-`Agent` en una bitácora (`PostToolUse`) y encierran al cartógrafo en `CLAUDE.md` (`PreToolUse`).
+integrar. Los hooks revisan el contrato de los informes (`SubagentStop` y, en modo auto, `PreToolUse` sobre
+`SubagentHandback`, con un solo rechazo por agente), registran cada llamada a `Agent` en una bitácora
+(`PostToolUse`) y encierran al cartógrafo en `CLAUDE.md` (`PreToolUse`).
 
 ## Instalar
 

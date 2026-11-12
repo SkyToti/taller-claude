@@ -1,6 +1,6 @@
 {
   "name": "enrutador",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Orquestación barata: una sesión planea y delega en seis subagentes con modelo fijo (explorador, cartógrafo, investigador, redactor, programador, verificador) que entregan informes cortos con contrato.",
   "author": {
     "name": "SkyToti"

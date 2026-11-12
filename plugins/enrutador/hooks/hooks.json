@@ -1,5 +1,5 @@
 {
-  "description": "enrutador: contrato de entrega de los subagentes, bitácora de llamadas a Agent y candado del cartógrafo.",
+  "description": "enrutador: contrato de entrega de los subagentes (SubagentStop y PreToolUse SubagentHandback), bitácora de llamadas a Agent y candado del cartógrafo.",
   "hooks": {
     "SubagentStop": [
       {
@@ -32,6 +32,16 @@
           {
             "type": "command",
             "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/solo-claude-md.sh\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "SubagentHandback",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/contrato-handback.sh\"",
             "timeout": 5
           }
         ]

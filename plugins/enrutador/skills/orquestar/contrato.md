@@ -4,7 +4,8 @@ Este archivo es la copia maestra. El bloque entre las marcas `contrato:inicio` y
 idéntico en el cuerpo de cada agente de `agents/`. Si lo cambias aquí, corre
 `scripts/sync-contrato.sh --arreglar` para copiarlo a los agentes, y `scripts/sync-contrato.sh` para comprobar.
 
-El hook `SubagentStop` (`scripts/contrato-stop.sh`) revisa que el informe empiece con `ESTADO:`, traiga
+Los hooks `SubagentStop` (`scripts/contrato-stop.sh`) y `PreToolUse` sobre `SubagentHandback`
+(`scripts/contrato-handback.sh`), con la regla de `scripts/contrato-lib.sh`, revisan que el informe empiece con `ESTADO:`, traiga
 `PRUEBAS:` y `NO VERIFICADO:`, no pase de 25 líneas y no tenga bloques de código de más de 5 líneas.
 
 <!-- contrato:inicio -->
