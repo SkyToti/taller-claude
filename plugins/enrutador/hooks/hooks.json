@@ -1,0 +1,41 @@
+{
+  "description": "enrutador: contrato de entrega de los subagentes, bitácora de llamadas a Agent y candado del cartógrafo.",
+  "hooks": {
+    "SubagentStop": [
+      {
+        "matcher": "^enrutador:",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/contrato-stop.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/bitacora.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/solo-claude-md.sh\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+# Resultados de claude plugin eval
+**/evals/results/
+
+# Configuración local de Claude Code
+.claude/settings.local.json
+
+# Basura de sistema y editores
+.DS_Store
+*.swp
+*~
+*.log
