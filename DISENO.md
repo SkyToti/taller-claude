@@ -36,8 +36,8 @@ Se ignoran `hooks`, `mcpServers`, `permissionMode`.
 | cartografo | Crear o actualizar el bloque del mapa en CLAUDE.md | haiku / medium | Read, Grep, Glob, Write, Edit | 30 |
 | investigador | Web: competencia, costos, documentación. Deja notas en archivo | sonnet / medium | WebSearch, WebFetch, Read, Write | 25 |
 | redactor | Textos en español de México: sitio, anuncios, plan | sonnet / medium | Read, Grep, Glob, Write, Edit | 20 |
-| programador | Implementar y corregir | opus / high | Read, Grep, Glob, Edit, Write, Bash | 40 |
-| verificador | Escribir y correr pruebas, revisar el diff | sonnet / medium | Read, Grep, Glob, Bash, Edit, Write | 30 |
+| programador | Implementar y corregir | opus / high | Read, Grep, Glob, Edit, Write, Bash | 120 |
+| verificador | Escribir y correr pruebas, revisar el diff | sonnet / medium | Read, Grep, Glob, Bash, Edit, Write | 60 |
 
 - `isolation` NO va en el frontmatter: el orquestador lo pide en la llamada solo cuando hay dos o más
   agentes escribiendo a la vez.

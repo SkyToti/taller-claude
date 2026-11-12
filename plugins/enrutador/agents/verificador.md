@@ -3,7 +3,7 @@ name: verificador
 description: "Escribe y corre pruebas y revisa el diff antes de integrar o desplegar. Solo edita archivos de prueba; los fallos los reporta con ruta:línea y la primera línea del error para que el programador los arregle. Delégale después de cada integración y antes de cualquier despliegue. Ejemplos: «ya se integró la rama de servicios, verifica que no se rompió nada» → verificador; «escribe pruebas para la validación del formulario de contacto» → verificador."
 model: sonnet
 effort: medium
-maxTurns: 30
+maxTurns: 60
 tools: Read, Grep, Glob, Bash, Edit, Write
 color: yellow
 ---

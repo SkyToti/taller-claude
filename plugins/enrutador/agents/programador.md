@@ -3,7 +3,7 @@ name: programador
 description: "Implementa y corrige código: funciones nuevas, páginas, componentes, arreglos de errores, ajustes de configuración y resolución de conflictos de merge. Trabaja en su worktree cuando el orquestador se lo pide, hace commit en su rama y nunca hace push. Delégale cualquier cambio de código con rutas y criterio de terminado claros. Ejemplos: «agrega la página /servicios con el contenido de notas/servicios.md» → programador; «el formulario de contacto no valida el teléfono, arréglalo» → programador."
 model: opus
 effort: high
-maxTurns: 40
+maxTurns: 120
 tools: Read, Grep, Glob, Edit, Write, Bash
 color: blue
 ---
