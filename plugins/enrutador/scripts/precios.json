@@ -1,0 +1,7 @@
+{
+  "_nota": "Precios de lista aproximados en USD por millón de tokens, solo para COMPARAR tareas y agentes entre sí. La escritura de caché está estimada en 1,25× la entrada. No es un cobro: el autor usa suscripción, no la API. Un modelo que no esté aquí sale con costo_equiv_usd null; también vale un prefijo (claude-opus-5-5 cubre claude-opus-5-5-AAAAMMDD).",
+  "claude-fable-5-2": {"entrada": 8, "salida": 40, "cache_lectura": 0.20, "cache_escritura": 10},
+  "claude-opus-5-5": {"entrada": 4, "salida": 20, "cache_lectura": 0.20, "cache_escritura": 5},
+  "claude-sonnet-5-5": {"entrada": 2, "salida": 10, "cache_lectura": 0.10, "cache_escritura": 2.5},
+  "claude-haiku-5-5": {"entrada": 0.10, "salida": 0.50, "cache_lectura": 0.01, "cache_escritura": 0.125}
+}

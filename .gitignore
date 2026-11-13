@@ -12,3 +12,7 @@
 
 # worktrees temporales de los agentes
 .claude/worktrees/
+
+# Caché de Python de las pruebas
+__pycache__/
+*.pyc
