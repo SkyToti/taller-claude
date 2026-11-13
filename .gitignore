@@ -9,3 +9,6 @@
 *.swp
 *~
 *.log
+
+# worktrees temporales de los agentes
+.claude/worktrees/
