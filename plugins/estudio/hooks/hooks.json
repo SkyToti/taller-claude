@@ -1,0 +1,29 @@
+{
+  "description": "estudio: compuerta de compilación. Antes de que programador-mod o probador entreguen (SubagentStop y PreToolUse SubagentHandback), corre ./build.sh y ./probar.sh en su worktree y niega la entrega si fallan.",
+  "hooks": {
+    "SubagentStop": [
+      {
+        "matcher": "^estudio:(programador-mod|probador)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/puerta.py\"",
+            "timeout": 600
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "SubagentHandback",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/puerta.py\"",
+            "timeout": 600
+          }
+        ]
+      }
+    ]
+  }
+}

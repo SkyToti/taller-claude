@@ -83,5 +83,11 @@ Junto a este archivo están `contrato.md` (formato de los informes) y `plantilla
 4. Desplegar lo decide la persona; tú solo reportas que está listo.
 
 ## Bitácora
-Cada llamada a `Agent` deja una línea en `${CLAUDE_PLUGIN_DATA}/bitacora.jsonl` (agente, modelo pedido y real,
-tokens, duración, herramientas, ESTADO). Úsala para ver si un agente se queda corto o se pasa de turnos.
+- `bitacora.jsonl` (en `${CLAUDE_PLUGIN_DATA}`) sigue anotando cada **lanzamiento** con `Agent`: agente,
+  descripción, modelo pedido y real. Con agentes en segundo plano sus tokens salen `null` (aún no terminan).
+- `metricas.jsonl` anota los tokens **reales** al terminar cada subagente (hook `SubagentStop`, todos los
+  agentes): entrada, caché escrita y leída, salida, turnos, herramientas, modelo, duración, ESTADO y un
+  costo equivalente (`scripts/precios.json`; sirve para comparar, no es un cobro). Si el agente se reanuda
+  deja otra línea con `parada` 2, 3…: vale la última.
+- Resumen por agente y modelo: `python3 <raíz del plugin>/scripts/resumen-metricas.py [--sesion <id>]
+  [--dias N] [--csv]`. Úsalo para ver si un agente se queda corto, se pasa de turnos o gasta de más.

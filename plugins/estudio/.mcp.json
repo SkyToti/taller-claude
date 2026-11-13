@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "minecraft-rcon": {
+      "command": "minecraft-rcon-mcp"
+    }
+  }
+}

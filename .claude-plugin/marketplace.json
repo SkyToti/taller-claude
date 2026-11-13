@@ -13,12 +13,23 @@
       "name": "enrutador",
       "source": "./plugins/enrutador",
       "description": "Orquestación barata: una sesión planea y delega en seis subagentes con modelo fijo (explorador, cartógrafo, investigador, redactor, programador, verificador) que entregan informes cortos con contrato.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "author": {
         "name": "SkyToti"
       },
       "category": "productivity",
       "keywords": ["subagentes", "orquestacion", "worktrees", "espanol"]
+    },
+    {
+      "name": "estudio",
+      "source": "./plugins/estudio",
+      "description": "Estudio de mods de Minecraft (Fabric): programador-mod y probador baratos que trabajan en worktrees, compuerta que no los deja entregar hasta que ./build.sh y ./probar.sh pasen, receta del orquestador y MCP de RCON.",
+      "version": "0.1.0",
+      "author": {
+        "name": "SkyToti"
+      },
+      "category": "development",
+      "keywords": ["minecraft", "fabric", "gametest", "subagentes", "espanol"]
     }
   ]
 }

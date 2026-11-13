@@ -1,5 +1,5 @@
 {
-  "description": "enrutador: contrato de entrega de los subagentes (SubagentStop y PreToolUse SubagentHandback), bitácora de llamadas a Agent y candado del cartógrafo.",
+  "description": "enrutador: contrato de entrega de los subagentes (SubagentStop y PreToolUse SubagentHandback), bitácora de llamadas a Agent, métricas reales de tokens al terminar cada subagente y candado del cartógrafo.",
   "hooks": {
     "SubagentStop": [
       {
@@ -9,6 +9,15 @@
             "type": "command",
             "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/contrato-stop.sh\"",
             "timeout": 5
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/metricas.py\"",
+            "timeout": 15
           }
         ]
       }

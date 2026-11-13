@@ -1,0 +1,9 @@
+{
+  "name": "estudio",
+  "version": "0.1.0",
+  "description": "Estudio de mods de Minecraft (Fabric): programador-mod y probador baratos que trabajan en worktrees, compuerta que no los deja entregar hasta que ./build.sh y ./probar.sh pasen, receta del orquestador y MCP de RCON.",
+  "author": {
+    "name": "SkyToti"
+  },
+  "keywords": ["minecraft", "fabric", "gametest", "subagentes", "espanol"]
+}
