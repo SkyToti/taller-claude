@@ -16,7 +16,7 @@ campo() { printf '%s' "$entrada" | jq -r "$1 // \"\" | tostring" 2>/dev/null; }
 activo="$(campo .stop_hook_active)"
 [ "$activo" = "true" ] && exit 0
 tipo="$(campo .agent_type)"
-case "$tipo" in enrutador:*) ;; *) exit 0 ;; esac
+case "$tipo" in enrutador:*|estudio:*) ;; *) exit 0 ;; esac
 
 # Informe entregado por SubagentHandback: no está en last_assistant_message.
 transcript="$(campo .agent_transcript_path)"

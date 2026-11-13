@@ -3,7 +3,7 @@
   "hooks": {
     "SubagentStop": [
       {
-        "matcher": "^enrutador:",
+        "matcher": "^(enrutador|estudio):",
         "hooks": [
           {
             "type": "command",

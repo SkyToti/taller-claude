@@ -14,7 +14,7 @@ printf '%s' "$entrada" | jq -e 'type == "object" and .tool_name == "SubagentHand
 campo() { printf '%s' "$entrada" | jq -r "$1 // \"\" | tostring" 2>/dev/null; }
 
 tipo="$(campo .agent_type)"
-case "$tipo" in enrutador:*) ;; *) exit 0 ;; esac
+case "$tipo" in enrutador:*|estudio:*) ;; *) exit 0 ;; esac
 
 # Sin agent_id no se puede contar rechazos: mejor no arriesgar un bucle.
 agente="$(campo .agent_id | tr -cd 'A-Za-z0-9_-')"
