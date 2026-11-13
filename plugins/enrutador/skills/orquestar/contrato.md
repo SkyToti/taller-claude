@@ -3,6 +3,8 @@
 Este archivo es la copia maestra. El bloque entre las marcas `contrato:inicio` y `contrato:fin` va
 idéntico en el cuerpo de cada agente de `agents/`. Si lo cambias aquí, corre
 `scripts/sync-contrato.sh --arreglar` para copiarlo a los agentes, y `scripts/sync-contrato.sh` para comprobar.
+Los agentes de `plugins/estudio` usan esta misma copia: después corre también
+`plugins/estudio/scripts/sync-contrato.sh --arreglar`.
 
 Los hooks `SubagentStop` (`scripts/contrato-stop.sh`) y `PreToolUse` sobre `SubagentHandback`
 (`scripts/contrato-handback.sh`), con la regla de `scripts/contrato-lib.sh`, revisan que el informe empiece con `ESTADO:`, traiga

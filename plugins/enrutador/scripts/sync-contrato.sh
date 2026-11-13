@@ -3,6 +3,8 @@
 # (skills/orquestar/contrato.md, entre <!-- contrato:inicio --> y <!-- contrato:fin -->).
 #   sync-contrato.sh             → comprueba; sale con 1 si alguna copia difiere
 #   sync-contrato.sh --arreglar  → reescribe las copias de los agentes con la maestra
+#   sync-contrato.sh [--arreglar] <carpeta de agentes>…  → lo mismo con otras carpetas (otros plugins
+#                                  del marketplace, p. ej. plugins/estudio/agents); por defecto, agents/
 # No es un hook: se corre a mano después de tocar el contrato o de agregar un agente.
 set -u
 
@@ -18,14 +20,18 @@ bloque="$(extraer "$maestro")"
 [ -n "$bloque" ] || { echo "contrato.md no tiene el bloque $inicio … $fin" >&2; exit 2; }
 
 arreglar=0
-[ "${1:-}" = "--arreglar" ] && arreglar=1
+[ "${1:-}" = "--arreglar" ] && { arreglar=1; shift; }
+carpetas=("$@")
+[ "${#carpetas[@]}" -gt 0 ] || carpetas=("$raiz/agents")
 
 tmpbloque="$(mktemp)"
 trap 'rm -f "$tmpbloque"' EXIT
 extraer "$maestro" > "$tmpbloque"
 
 total=0 malas=0
-for agente in "$raiz"/agents/*.md; do
+archivos=()
+for c in "${carpetas[@]}"; do for a in "$c"/*.md; do archivos+=("$a"); done; done
+for agente in "${archivos[@]}"; do
   [ -f "$agente" ] || continue
   total=$((total + 1))
   nombre="$(basename "$agente")"
