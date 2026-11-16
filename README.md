@@ -60,3 +60,7 @@ Si `modelo_pedido` no es `null`, el orquestador forzó el modelo: debería traer
 
 `plugins/enrutador/evals/` trae tres casos de enrutamiento (`claude plugin eval`). Gastan créditos: córrelos
 a propósito, no en cada cambio.
+
+## Licencia
+
+MIT. Ver [LICENSE](LICENSE).
